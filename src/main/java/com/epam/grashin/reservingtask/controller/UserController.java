@@ -4,7 +4,6 @@ import com.epam.grashin.reservingtask.entity.User;
 import com.epam.grashin.reservingtask.repository.UserRepository;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +16,7 @@ import java.util.List;
 public class UserController{
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @RequestMapping(path = "{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public User getUserById(@PathVariable long id) {

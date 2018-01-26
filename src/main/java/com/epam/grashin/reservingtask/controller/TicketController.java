@@ -11,7 +11,6 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,13 +28,13 @@ public class TicketController {
     private static final String TRAIN_HAS_GONE="This train was before current date";
 
     @Autowired
-    TrainRepository trainRepository;
+    private TrainRepository trainRepository;
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Autowired
-    TicketRepository ticketRepository;
+    private TicketRepository ticketRepository;
 
     @ApiOperation(value = "Book a ticket for a train")
     @ApiResponses(value = {
