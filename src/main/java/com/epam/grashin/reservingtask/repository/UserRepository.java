@@ -37,8 +37,8 @@ public class UserRepository {
         return keyHolder.getKey().longValue();
     }
 
-    public int update(User user) {
-        return jdbcTemplate.update(UPDATE_USER_SQL,
+    public void update(User user) {
+        jdbcTemplate.update(UPDATE_USER_SQL,
                 user.getName(), user.getEmail(), user.getId());
     }
 
@@ -48,7 +48,7 @@ public class UserRepository {
 
     public User findUserById(long id) {
         try{
-            return (User) jdbcTemplate.queryForObject(GET_USER_BY_ID_SQL, new Object[] { id }, new BeanPropertyRowMapper(User.class));
+            return jdbcTemplate.queryForObject(GET_USER_BY_ID_SQL, new Object[] { id }, new BeanPropertyRowMapper<>(User.class));
         } catch (EmptyResultDataAccessException ex){
             return null;
         }
@@ -56,7 +56,7 @@ public class UserRepository {
 
     public List<User> findAll() {
         log.info("Lookup for all users");
-        return jdbcTemplate.query(GET_ALL_USERS_SQL, new BeanPropertyRowMapper(User.class));
+        return jdbcTemplate.query(GET_ALL_USERS_SQL, new BeanPropertyRowMapper<>(User.class));
     }
 
 }

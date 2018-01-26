@@ -45,22 +45,22 @@ public class TrainRepository {
         return keyHolder.getKey().longValue();
     }
 
-    public int updateTicketsAmountForTrain(long ticketsLeft, long trainId) {
-        return jdbcTemplate.update(UPDATE_TICKETS_SQL,
+    public void updateTicketsAmountForTrain(long ticketsLeft, long trainId) {
+        jdbcTemplate.update(UPDATE_TICKETS_SQL,
                 ticketsLeft, trainId);
     }
 
     public List<Train> findTrainByDestination(String destination) {
-        return jdbcTemplate.query(GET_TRAIN_BY_DESTINATION_SQL, new Object[]{destination}, new BeanPropertyRowMapper(Train.class));
+        return jdbcTemplate.query(GET_TRAIN_BY_DESTINATION_SQL, new Object[]{destination}, new BeanPropertyRowMapper<>(Train.class));
     }
 
     public List<Train> findTrainByDate(LocalDate date) {
-        return jdbcTemplate.query(GET_TRAIN_BY_DATE_SQL, new Object[]{Date.valueOf(date)}, new BeanPropertyRowMapper(Train.class));
+        return jdbcTemplate.query(GET_TRAIN_BY_DATE_SQL, new Object[]{Date.valueOf(date)}, new BeanPropertyRowMapper<>(Train.class));
     }
 
     public Train findTrainById(Long id) {
         try{
-            return (Train) jdbcTemplate.queryForObject(GET_TRAIN_BY_ID_SQL, new Object[]{id}, new BeanPropertyRowMapper(Train.class));
+            return jdbcTemplate.queryForObject(GET_TRAIN_BY_ID_SQL, new Object[]{id}, new BeanPropertyRowMapper<>(Train.class));
         } catch (EmptyResultDataAccessException ex){
             return null;
         }
@@ -68,6 +68,6 @@ public class TrainRepository {
 
     public List<Train> findAll() {
         log.info("Lookup for all Trains");
-        return jdbcTemplate.query(GET_ALL_TRAINS_SQL, new BeanPropertyRowMapper(Train.class));
+        return jdbcTemplate.query(GET_ALL_TRAINS_SQL, new BeanPropertyRowMapper<>(Train.class));
     }
 }

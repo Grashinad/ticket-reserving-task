@@ -5,7 +5,7 @@
 
 	<groupId>com.epam.grashin</groupId>
 	<artifactId>ticket-reserving-task</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1</version>
 	<packaging>jar</packaging>
 
 	<name>ticket-reserving-task</name>

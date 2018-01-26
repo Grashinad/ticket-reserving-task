@@ -1,10 +1,13 @@
-Train ticker booking api
+Train ticket booking API
+=
 
-Spring Boot \
-Java 8 \
-Spring JDBC \
-Maven \
-БД - H2 \
-Swagger \
+## Technologies
 
-After launch, Swagger UI will be available on localhost:8080/swagger-ui.html.
+* Java 8
+* Spring Boot
+* Spring JDBC Templates
+* Maven
+* H2 Database
+* Swagger
+
+After launch, Swagger UI will be available on [localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
