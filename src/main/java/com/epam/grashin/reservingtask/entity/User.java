@@ -1,15 +1,34 @@
 package com.epam.grashin.reservingtask.entity;
 
 public class User {
-    private String login;
+
+    private Long id;
+    private String name;
     private String email;
 
-    public String getLogin() {
-        return login;
+    public User(){
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public User(Long id, String name, String email) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -17,11 +36,6 @@ public class User {
     }
 
     public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public User(String login, String email) {
-        this.login = login;
         this.email = email;
     }
 }

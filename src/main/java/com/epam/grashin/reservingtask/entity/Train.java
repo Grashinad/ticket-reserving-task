@@ -1,21 +1,24 @@
 package com.epam.grashin.reservingtask.entity;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class Train {
 
     private Long id;
     private String destination;
-    private LocalDate date;
+    private Date date;
     private Integer capacity;
-    private Integer ticketsLeft;
+    private Integer tickets;
 
-    public Train(Long id, String destination, LocalDate date, Integer capacity) {
+    public Train(){
+    }
+
+    public Train(Long id, String destination, Date date, Integer capacity) {
         this.id = id;
         this.destination = destination;
         this.date = date;
         this.capacity = capacity;
-        this.ticketsLeft = capacity;
+        this.tickets = capacity;
     }
 
     public Long getId() {
@@ -34,11 +37,11 @@ public class Train {
         this.destination = destination;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
@@ -50,11 +53,11 @@ public class Train {
         this.capacity = capacity;
     }
 
-    public Integer getTicketsLeft() {
-        return ticketsLeft;
+    public Integer getTickets() {
+        return tickets;
     }
 
-    public void setTicketsLeft(Integer ticketsLeft) {
-        this.ticketsLeft = ticketsLeft;
+    public void setTickets(Integer tickets) {
+        this.tickets = tickets;
     }
 }
